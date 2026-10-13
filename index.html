@@ -23,6 +23,35 @@ footer{background:var(--ink);color:#bdc7c2;padding:38px 0 25px}.footer-top{displ
 @media(max-width:850px){.links{gap:15px}.hero-content{padding:78px 0}.hero-image{left:18%;opacity:.55}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.about-grid{gap:35px}.trust-item{padding:20px 14px}.trust-item strong{font-size:.87rem}.section{padding:68px 0}}
 @media(max-width:600px){.wrap{width:min(var(--max),calc(100% - 32px))}.topline .wrap{justify-content:center;text-align:center}.topline .wrap span:last-child{display:none}header{height:auto;min-height:72px}.nav{padding:13px 0;gap:12px;flex-wrap:wrap}.brand{font-size:1.3rem}.brand-mark{width:31px;height:31px}.links{order:3;width:100%;justify-content:center;border-top:1px solid #ffffff18;padding-top:10px;gap:28px}.links a{font-size:.86rem}.nav-cta{padding:10px 12px;font-size:.8rem}.hero-content{padding:62px 0 55px}.hero-image{left:0;opacity:.38;background-position:58% center}.hero:after{background:linear-gradient(90deg,#101719f5,#101719c9)}h1{font-size:clamp(2.55rem,12vw,4rem)}.hero p{font-size:.97rem}.hero-note{gap:12px 20px;margin-top:30px}.trust-grid{grid-template-columns:1fr}.trust-item{border-right:0;border-bottom:1px solid var(--line);padding:15px 4px}.trust-item:last-child{border-bottom:0}.section{padding:56px 0}.section-head{display:block}.section-head p{margin-top:14px}.catalog-tools{align-items:stretch}.search{max-width:none}.filters{display:grid;grid-template-columns:repeat(2,1fr)}.filter{padding:10px 8px}.products{grid-template-columns:1fr;gap:14px}.product-art{height:130px}.product-body{padding:20px}.about-grid{grid-template-columns:1fr;gap:25px}.about-panel{padding:28px}.contact-inner{align-items:flex-start;flex-direction:column}.contact .btn{width:100%}.footer-top{flex-direction:column}.copyright{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* E-commerce: carrinho e finalização por WhatsApp */
+.cart-trigger{position:relative;display:inline-flex;align-items:center;gap:8px;background:#263331;color:#fff;border:1px solid #ffffff30;border-radius:8px;padding:11px 13px;font-weight:700;cursor:pointer;white-space:nowrap}
+.cart-count{display:inline-grid;place-items:center;min-width:22px;height:22px;padding:0 5px;background:var(--yellow);color:var(--ink);border-radius:99px;font-size:.75rem;font-weight:800}
+.cart-overlay{position:fixed;inset:0;background:#081010a8;z-index:60;display:none;align-items:stretch;justify-content:flex-end}
+.cart-overlay.open{display:flex}
+.cart-panel{background:#f8f9f5;width:min(480px,100%);height:100%;overflow:auto;padding:24px;box-shadow:-18px 0 50px #0002;display:flex;flex-direction:column}
+.cart-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.cart-head h2{font-size:1.65rem;letter-spacing:-.04em}
+.icon-button{width:40px;height:40px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font-size:1.35rem;cursor:pointer}
+.cart-items{display:grid;gap:12px;padding:20px 0;flex:1}
+.cart-empty{padding:35px 8px;text-align:center;color:#66736e}
+.cart-row{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;grid-template-columns:1fr auto;gap:12px}
+.cart-row h3{font-size:1rem;letter-spacing:-.02em;margin-bottom:5px}
+.cart-row small{color:#6d7973}
+.cart-controls{display:flex;align-items:center;gap:8px;margin-top:12px}
+.qty-btn{width:30px;height:30px;border:1px solid var(--line);background:#f5f6f2;border-radius:7px;font-weight:800;cursor:pointer}
+.qty-number{min-width:18px;text-align:center;font-weight:800}
+.remove-item{background:none;border:0;color:#8c342d;font-size:.8rem;text-decoration:underline;cursor:pointer;margin-left:auto}
+.cart-footer{border-top:1px solid var(--line);padding-top:18px}
+.cart-note{font-size:.83rem;color:#65716b;margin-bottom:15px}
+.checkout-fields{display:grid;gap:10px;margin-bottom:14px}
+.checkout-fields input,.checkout-fields textarea{width:100%;padding:12px 13px;border:1px solid #d9dfd8;border-radius:8px;background:#fff;outline:none;font:inherit}
+.checkout-fields input:focus,.checkout-fields textarea:focus{border-color:#8a9b8b;box-shadow:0 0 0 3px #dce6cf}
+.checkout-fields textarea{resize:vertical;min-height:72px}
+.checkout-btn{width:100%}
+.cart-trigger:hover{border-color:var(--yellow)}
+@media(max-width:600px){.nav-cta{display:none}.cart-trigger{padding:9px 10px;font-size:.82rem}.cart-panel{padding:18px}.cart-head h2{font-size:1.45rem}}
+
 </style>
 </head>
 <body>
@@ -30,7 +59,7 @@ footer{background:var(--ink);color:#bdc7c2;padding:38px 0 25px}.footer-top{displ
 <header><nav class="nav wrap" aria-label="Navegação principal">
 <a class="brand" href="#inicio" aria-label="LUBRIMAX início"><span class="brand-mark">L</span>LUBRI<span>MAX</span></a>
 <div class="links"><a href="#inicio">Início</a><a href="#catalogo">Produtos</a><a href="#empresa">A empresa</a><a href="#contacto">Contactos</a></div>
-<a class="nav-cta" href="#catalogo">Explorar catálogo <span aria-hidden="true">↗</span></a>
+<div style="display:flex;align-items:center;gap:9px"><a class="nav-cta" href="#catalogo">Explorar catálogo <span aria-hidden="true">↗</span></a><button class="cart-trigger" id="open-cart" type="button" aria-label="Abrir carrinho">Carrinho <span class="cart-count" id="cart-count">0</span></button></div>
 </nav></header>
 <main>
 <section class="hero" id="inicio"><div class="hero-image" role="img" aria-label="Motor e componentes mecânicos"></div><div class="wrap"><div class="hero-content">
@@ -58,6 +87,7 @@ footer{background:var(--ink);color:#bdc7c2;padding:38px 0 25px}.footer-top{displ
 </div></section>
 <section class="contact" id="contacto"><div class="wrap contact-inner"><div><div class="kicker">Vamos conversar</div><h2>Precisa de um lubrificante específico?</h2><p>Envie-nos o produto ou a aplicação. A nossa equipa ajudará a orientar o seu pedido.</p></div><a class="btn" id="contact-link" href="https://wa.me/?text=Olá%2C%20gostaria%20de%20informações%20sobre%20lubrificantes%20da%20LUBRIMAX." target="_blank" rel="noopener">Pedir informações <span>↗</span></a></div></section>
 </main>
+<div class="cart-overlay" id="cart-overlay" aria-hidden="true"><section class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title"><div class="cart-head"><div><div class="kicker">O seu pedido</div><h2 id="cart-title">Carrinho de compras</h2></div><button class="icon-button" id="close-cart" type="button" aria-label="Fechar carrinho">×</button></div><div class="cart-items" id="cart-items"><p class="cart-empty">O seu carrinho está vazio. Adicione produtos do catálogo para preparar um pedido.</p></div><div class="cart-footer"><p class="cart-note">Os preços e a disponibilidade serão confirmados pela equipa antes da compra.</p><div class="checkout-fields"><input id="customer-name" type="text" placeholder="Nome / empresa" aria-label="Nome ou empresa" autocomplete="name"><input id="customer-phone" type="tel" placeholder="Telefone de contacto" aria-label="Telefone de contacto" autocomplete="tel"><input id="customer-location" type="text" placeholder="Cidade / local de entrega" aria-label="Local de entrega"><textarea id="customer-notes" placeholder="Observações (opcional)" aria-label="Observações"></textarea></div><button class="btn btn-primary checkout-btn" id="checkout" type="button">Enviar pedido pelo WhatsApp ↗</button></div></section></div>
 <footer><div class="wrap"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#inicio"><span class="brand-mark">L</span>LUBRI<span>MAX</span></a><p>Soluções em lubrificação para automóveis, transporte pesado e aplicações industriais. Nampula, Moçambique.</p></div><div class="footer-links"><a href="#inicio">Início</a><a href="#catalogo">Catálogo</a><a href="#empresa">A empresa</a><a href="#contacto">Contactos</a></div></div><div class="copyright"><span>© <span id="year"></span> LUBRIMAX. Todos os direitos reservados.</span><span>Lubrificação inteligente. Desempenho em cada quilómetro.</span></div></div></footer>
 <script>
 const products=[
@@ -72,6 +102,7 @@ const products=[
 {id:9,name:"Óleos para engrenagens",category:"Industrial",symbol:"⚙",code:"09",desc:"Lubrificantes para caixas redutoras e sistemas de engrenagens industriais, conforme a carga e a recomendação técnica."}
 ];
 let activeFilter="Todos";
+const cart=new Map();
 const grid=document.getElementById("products");
 function renderProducts(){
  const query=document.getElementById("search").value.trim().toLocaleLowerCase("pt");
@@ -80,8 +111,8 @@ function renderProducts(){
  if(!shown.length){grid.innerHTML='<p class="empty">Não encontrámos produtos com esse termo. Experimente outra pesquisa.</p>';return}
  shown.forEach(p=>{
   const card=document.createElement("article");card.className="product";
-  card.innerHTML='<div class="product-art"><span class="product-symbol" aria-hidden="true">'+p.symbol+'</span><small>LUBRIMAX / '+p.code+'</small></div><div class="product-body"><div class="product-category">'+p.category+'</div><h3>'+p.name+'</h3><p>'+p.desc+'</p><div class="product-bottom"><span class="quote-label">Preço sob consulta</span><button class="btn btn-primary" type="button">Consultar ↗</button></div></div>';
-  card.querySelector("button").addEventListener("click",()=>askProduct(p.name));
+  card.innerHTML='<div class="product-art"><span class="product-symbol" aria-hidden="true">'+p.symbol+'</span><small>LUBRIMAX / '+p.code+'</small></div><div class="product-body"><div class="product-category">'+p.category+'</div><h3>'+p.name+'</h3><p>'+p.desc+'</p><div class="product-bottom"><span class="quote-label">Preço sob consulta</span><button class="btn btn-primary" type="button">Adicionar +</button></div></div>';
+  card.querySelector("button").addEventListener("click",()=>addToCart(p));
   grid.appendChild(card);
  });
 }
@@ -89,6 +120,45 @@ function askProduct(name){
  const message="Olá, LUBRIMAX. Gostaria de consultar disponibilidade, especificações e preço para: "+name+".";
  window.open("https://wa.me/?text="+encodeURIComponent(message),"_blank","noopener");
 }
+function addToCart(product){
+ const current=cart.get(product.id)||{product,qty:0};
+ current.qty+=1;cart.set(product.id,current);renderCart();
+ const btn=document.getElementById("open-cart");btn.setAttribute("aria-label","Carrinho com "+getCartCount()+" unidades");
+}
+function getCartCount(){return [...cart.values()].reduce((sum,item)=>sum+item.qty,0)}
+function renderCart(){
+ document.getElementById("cart-count").textContent=getCartCount();
+ const container=document.getElementById("cart-items");
+ if(cart.size===0){container.innerHTML='<p class="cart-empty">O seu carrinho está vazio. Adicione produtos do catálogo para preparar um pedido.</p>';return}
+ container.innerHTML="";
+ cart.forEach(({product,qty})=>{
+  const row=document.createElement("article");row.className="cart-row";
+  row.innerHTML='<div><h3></h3><small>Preço sob consulta · '+product.category+'</small><div class="cart-controls"><button class="qty-btn minus" type="button" aria-label="Diminuir quantidade">−</button><span class="qty-number">'+qty+'</span><button class="qty-btn plus" type="button" aria-label="Aumentar quantidade">+</button><button class="remove-item" type="button">Remover</button></div></div><strong>× '+qty+'</strong>';
+  row.querySelector("h3").textContent=product.name;
+  row.querySelector(".minus").addEventListener("click",()=>changeQty(product.id,-1));
+  row.querySelector(".plus").addEventListener("click",()=>changeQty(product.id,1));
+  row.querySelector(".remove-item").addEventListener("click",()=>{cart.delete(product.id);renderCart()});
+  container.appendChild(row);
+ });
+}
+function changeQty(id,delta){const item=cart.get(id);if(!item)return;item.qty+=delta;if(item.qty<=0)cart.delete(id);else cart.set(id,item);renderCart()}
+function openCart(){const overlay=document.getElementById("cart-overlay");overlay.classList.add("open");overlay.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
+function closeCart(){const overlay=document.getElementById("cart-overlay");overlay.classList.remove("open");overlay.setAttribute("aria-hidden","true");document.body.style.overflow=""}
+document.getElementById("open-cart").addEventListener("click",openCart);
+document.getElementById("close-cart").addEventListener("click",closeCart);
+document.getElementById("cart-overlay").addEventListener("click",e=>{if(e.target.id==="cart-overlay")closeCart()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
+document.getElementById("checkout").addEventListener("click",()=>{
+ if(cart.size===0){alert("Adicione pelo menos um produto ao carrinho.");return}
+ const name=document.getElementById("customer-name").value.trim();
+ const phone=document.getElementById("customer-phone").value.trim();
+ const location=document.getElementById("customer-location").value.trim();
+ const notes=document.getElementById("customer-notes").value.trim();
+ if(!name||!phone){alert("Por favor, indique o seu nome/empresa e telefone de contacto.");return}
+ const lines=[...cart.values()].map(({product,qty})=>"- "+product.name+" — quantidade: "+qty);
+ const message=["Olá, LUBRIMAX! Gostaria de solicitar uma cotação para o seguinte pedido:","",...lines,"","Nome/Empresa: "+name,"Telefone: "+phone,"Local de entrega: "+(location||"Por confirmar"),"Observações: "+(notes||"Nenhuma"),"Por favor, confirmem disponibilidade e preços."].join("\n");
+ window.open("https://wa.me/?text="+encodeURIComponent(message),"_blank","noopener");
+});
 document.getElementById("search").addEventListener("input",renderProducts);
 document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
  activeFilter=btn.dataset.filter;
