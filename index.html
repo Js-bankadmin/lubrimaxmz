@@ -1,1 +1,133 @@
 
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LUBRIMAX | Lubrificantes</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#17212b}
+header{background:#101820;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.logo{font-size:27px;font-weight:bold}.logo span{color:#ffbf36}
+a{color:inherit;text-decoration:none}
+.btn{display:inline-block;background:#e53935;color:white;padding:12px 17px;border:0;border-radius:7px;font-weight:bold;cursor:pointer}
+.hero{background:linear-gradient(120deg,#101820,#303e49);color:white;padding:55px 6%}
+.hero h1{font-size:clamp(32px,6vw,52px);margin:10px 0}
+.hero p{max-width:600px;line-height:1.7}
+section{padding:35px 5%}
+h2{font-size:27px}
+.search{width:100%;max-width:450px;padding:13px;border:1px solid #ccc;border-radius:8px;font-size:16px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.filter{padding:10px 13px;border:1px solid #ddd;border-radius:20px;background:white;cursor:pointer}
+.filter.active{background:#101820;color:white}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.product{background:white;padding:20px;border-radius:12px;border:1px solid #e1e5e9}
+.product .emoji{font-size:38px}
+.product h3{margin:12px 0 8px}
+.product p{color:#596673;line-height:1.5;min-height:65px}
+.product button{width:100%}
+.about{background:#e8edf1;line-height:1.8}
+.contact{background:#101820;color:white}
+.contact p{line-height:1.8}
+footer{padding:20px;text-align:center;background:#080d11;color:white}
+.cart{position:fixed;bottom:15px;right:15px;z-index:5;box-shadow:0 3px 12px #0004}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">LUBRI<span>MAX</span></div>
+  <a class="btn" href="#produtos">Ver produtos</a>
+</header>
+
+<div class="hero">
+  <p style="color:#ffbf36;font-weight:bold">NAMPULA · MOÇAMBIQUE</p>
+  <h1>O lubrificante certo para cada trabalho.</h1>
+  <p>Lubrificantes e fluidos para viaturas, máquinas, oficinas e indústria. Encontre o produto de que precisa e peça a sua cotação.</p>
+  <a class="btn" href="https://wa.me/258877966221?text=Bom%20dia%20LUBRIMAX,%20gostaria%20de%20pedir%20uma%20cota%C3%A7%C3%A3o">Pedir cotação no WhatsApp</a>
+</div>
+
+<section id="produtos">
+  <h2>Os nossos produtos</h2>
+  <p>Pesquise ou escolha uma categoria.</p>
+  <input class="search" id="search" placeholder="Pesquisar óleo, graxa, fluido..." aria-label="Pesquisar produtos">
+
+  <div class="filters">
+    <button class="filter active" data-cat="Todos">Todos</button>
+    <button class="filter" data-cat="Motor">Óleos de motor</button>
+    <button class="filter" data-cat="Transmissão">Transmissão</button>
+    <button class="filter" data-cat="Hidráulicos">Hidráulicos</button>
+    <button class="filter" data-cat="Industriais">Industriais</button>
+    <button class="filter" data-cat="Graxas">Graxas</button>
+    <button class="filter" data-cat="Fluidos">Fluidos</button>
+  </div>
+
+  <div class="products" id="lista"></div>
+  <p>Consulte-nos para confirmar marcas, especificações, embalagens, stock e preços.</p>
+</section>
+
+<section class="about">
+  <h2>Porquê escolher a LUBRIMAX?</h2>
+  <p>✓ Apoio na escolha do lubrificante adequado.</p>
+  <p>✓ Atendimento a particulares, oficinas e empresas.</p>
+  <p>✓ Soluções para automóveis, frotas, máquinas e indústria.</p>
+  <p>✓ Pedidos de cotação simples e rápidos.</p>
+</section>
+
+<section class="contact" id="contacto">
+  <h2>Precisa de uma cotação?</h2>
+  <p>Envie-nos o nome do produto ou a especificação de que precisa.</p>
+  <p>Nampula, Moçambique</p>
+  <p>WhatsApp: +258 87 796 6221</p>
+  <a class="btn" href="https://wa.me/258877966221?text=Bom%20dia%20LUBRIMAX,%20preciso%20de%20uma%20cota%C3%A7%C3%A3o" target="_blank" rel="noopener">Contactar agora</a>
+</section>
+
+<footer>© <span id="ano"></span> LUBRIMAX · Lubrificantes e fluidos</footer>
+<button class="btn cart" id="pedido">Meu pedido (<span id="total">0</span>)</button>
+
+<script>
+const produtos=[
+{n:"Óleos de motor",c:"Motor",e:"🛢️",d:"Óleos para motores a gasolina e diesel."},
+{n:"Óleos de transmissão",c:"Transmissão",e:"⚙️",d:"Óleos para caixas, transmissões e diferenciais."},
+{n:"Óleos hidráulicos",c:"Hidráulicos",e:"🔧",d:"Para sistemas hidráulicos e equipamentos."},
+{n:"Óleos industriais",c:"Industriais",e:"🏭",d:"Lubrificantes para aplicações industriais."},
+{n:"Graxas e massas",c:"Graxas",e:"🔩",d:"Para rolamentos e outras aplicações de lubrificação."},
+{n:"Fluidos automotivos",c:"Fluidos",e:"🚗",d:"Fluidos para manutenção de viaturas."},
+{n:"Óleos de engrenagens",c:"Transmissão",e:"⚙️",d:"Para engrenagens e diferenciais."},
+{n:"Lubrificantes para máquinas",c:"Hidráulicos",e:"🚜",d:"Produtos para máquinas e equipamentos."},
+{n:"Graxas industriais",c:"Graxas",e:"🏗️",d:"Consulte-nos sobre a graxa adequada à aplicação."}
+];
+let categoria="Todos";
+const carrinho={};
+function mostrar(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const lista=produtos.filter(p=>(categoria==="Todos"||p.c===categoria)&&(p.n+" "+p.c+" "+p.d).toLowerCase().includes(q));
+ document.getElementById("lista").innerHTML=lista.map(p=>`
+ <article class="product">
+ <div class="emoji">${p.e}</div><h3>${p.n}</h3><p>${p.d}</p>
+ <button class="btn" onclick="adicionar('${p.n}')">Adicionar ao pedido</button>
+ </article>`).join("")||"<p>Nenhum produto encontrado.</p>";
+}
+function adicionar(nome){
+ carrinho[nome]=(carrinho[nome]||0)+1;
+ document.getElementById("total").textContent=Object.values(carrinho).reduce((a,b)=>a+b,0);
+}
+document.getElementById("search").addEventListener("input",mostrar);
+document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
+ categoria=b.dataset.cat;
+ document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));
+ mostrar();
+}));
+document.getElementById("pedido").addEventListener("click",()=>{
+ if(!Object.keys(carrinho).length){alert("Adicione primeiro um produto ao pedido.");return;}
+ const texto="Bom dia, LUBRIMAX. Gostaria de uma cotação para:\n"+
+ Object.entries(carrinho).map(([n,q])=>q+" x "+n).join("\n")+
+ "\nPor favor, confirmem disponibilidade e preços.";
+ window.open("https://wa.me/258877966221?text="+encodeURIComponent(texto),"_blank");
+});
+document.getElementById("ano").textContent=new Date().getFullYear();
+mostrar();
+</script>
+</body>
+</html>
