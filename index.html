@@ -1,1 +1,873 @@
 
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LubriMax | Lubrificantes de Alta Performance</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #090d12;
+            --bg-surface: #111720;
+            --bg-card: #182230;
+            --border-subtle: #253347;
+            --accent: #f59e0b; /* Amarelo Industrial */
+            --accent-hover: #d97706;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 5%;
+            background: rgba(9, 13, 18, 0.85);
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+        }
+
+        .nav-links button:hover, .nav-links button.active {
+            color: var(--text-main);
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        .cart-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .cart-btn:hover {
+            border-color: var(--accent);
+        }
+
+        .cart-badge {
+            background-color: var(--accent);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.1rem 0.4rem;
+            border-radius: 10px;
+        }
+
+        .view-section {
+            display: none;
+            flex: 1;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .view-section.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 5% 4rem;
+            width: 100%;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media(max-width: 960px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                text-align: center;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            line-height: 1.08;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2.2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #000;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-surface);
+            color: var(--text-main);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-muted);
+        }
+
+        .info-showcase {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .info-showcase h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .info-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .info-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon-box {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+            padding: 0.6rem;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            min-width: 36px;
+            text-align: center;
+        }
+
+        .feature-text h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .store-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5% 5rem;
+            width: 100%;
+        }
+
+        .store-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .store-title h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .store-title p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--bg-surface);
+            padding: 0.35rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .filter-tab {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-tab.active, .filter-tab:hover {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .product-info-top {
+            margin-bottom: 1.5rem;
+        }
+
+        .product-category {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .product-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .product-specs-mini {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--bg-card);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 1rem;
+        }
+
+        .product-price {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .btn-sm {
+            padding: 0.55rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 420px;
+            height: 100%;
+            background-color: var(--bg-surface);
+            border-left: 1px solid var(--border-subtle);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            transition: right 0.3s ease-in-out;
+        }
+
+        .cart-modal.open {
+            right: 0;
+        }
+
+        .cart-modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-modal-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .cart-items-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .cart-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-item-info h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .cart-item-info p {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .cart-item-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .cart-item-controls button {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .cart-modal-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            background: var(--bg-primary);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cart-total span:last-child {
+            color: var(--accent);
+            font-family: var(--font-display);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1500;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 2.5rem 5%;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background-color: var(--bg-primary);
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo" onclick="switchView('home')">
+            <div class="logo-dot"></div>
+            Lubri<span>Max</span>
+        </div>
+        <div class="nav-actions">
+            <ul class="nav-links">
+                <li><button onclick="switchView('home')" id="nav-btn-home" class="active">Info & Empresa</button></li>
+                <li><button onclick="switchView('store')" id="nav-btn-store">Loja</button></li>
+            </ul>
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒 Carrinho <span class="cart-badge" id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <section id="view-home" class="view-section active">
+        <div class="hero-wrapper">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="hero-tag">Excelência em Lubrificação</span>
+                    <h1>Performance Avançada para o seu <span>Motor e Maquinaria</span></h1>
+                    <p>A <strong>LubriMax</strong> é líder em soluções técnicas de lubrificantes, óleos sintéticos e minerais de alta especificação. Garantimos máxima proteção contra o desgaste, eficiência operacional prolongada e suporte rigoroso para frotas e indústrias.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="switchView('store')">Aceder à Loja</button>
+                        <button class="btn btn-secondary" onclick="scrollToDetails()">Saber Mais</button>
+                    </div>
+                </div>
+
+                <div class="info-showcase">
+                    <h3>Perfil Operacional & Padrões</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6;">Operamos sob rigorosos controlos de qualidade com portfólio certificado para aplicações automotivas, comerciais e industriais exigentes.</p>
+                    
+                    <div class="info-features">
+                        <div class="info-feature-item">
+                            <div class="feature-icon-box">01</div>
+                            <div class="feature-text">
+                               <h4>Óleos Certificados</h4>
+                               <p>Formulações testadas em laboratório para suportar temperaturas extremas e alta fricção.</p>
+                            </div>
+                        </div>
+                        <div class="info-feature-item">
+                            <div class="feature-icon-box">02</div>
+                            <div class="feature-text">
+                               <h4>Pronta Entrega e Frotas</h4>
+                               <p>Logística ágil e apoio especializado para frotas ligeiras, pesadas e industriais.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="view-store" class="view-section">
+        <div class="store-container">
+            <div class="store-header-flex">
+                <div class="store-title">
+                    <h2>Catálogo de Produtos</h2>
+                    <p>Escolha o lubrificante ideal para maximizar a durabilidade do seu equipamento.</p>
+                </div>
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="filterProducts('all')">Todos</button>
+                    <button class="filter-tab" onclick="filterProducts('Automotivo')">Automotivo</button>
+                    <button class="filter-tab" onclick="filterProducts('Pesados')">Pesados</button>
+                    <button class="filter-tab" onclick="filterProducts('Industrial')">Industrial</button>
+                </div>
+            </div>
+
+            <div class="products-grid" id="products-grid"></div>
+        </div>
+    </section>
+
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal-header">
+            <h3>Seu Carrinho de Compras</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items-list" id="cart-items-container">
+            <p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">O seu carrinho está vazio.</p>
+        </div>
+        <div class="cart-modal-footer">
+            <div class="cart-total">
+                <span>Total Estimado:</span>
+                <span id="cart-total-price">0 MT</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="checkoutOrder()">Finalizar Pedido via WhatsApp</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 <span>LubriMax</span>. Todos os direitos reservados. Engenharia e Proteção em Lubrificantes.</p>
+    </footer>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "LubriMax Ultra 20W-50",
+                category: "Automotivo",
+                badge: "Mais Procurado",
+                viscosity: "20W-50",
+                type: "Mineral Reforçado",
+                price: 1850,
+                description: "Óleo mineral de alta viscosidade desenvolvido para motores de uso intensivo, viaturas usadas e frotas urbanas que exigem proteção superior contra o desgaste."
+            },
+            {
+                id: 2,
+                name: "LubriMax Sintético 5W-30",
+                category: "Automotivo",
+                badge: "Alta Eficiência",
+                viscosity: "5W-30",
+                type: "100% Sintético",
+                price: 2450,
+                description: "Fluido sintético de última geração para motores a gasolina e gasóleo modernos, promovendo menor consumo de combustível e arranque limpo a frio."
+            },
+            {
+                id: 3,
+                name: "LubriMax Heavy Duty 15W-40",
+                category: "Pesados",
+                badge: "Frotas & Carga",
+                viscosity: "15W-40",
+                type: "Multigraduado",
+                price: 3800,
+                description: "Formulado para motores diesel de serviço severo em camiões, carrinhas de transporte de carga e geradores industriais de grande porte."
+            },
+            {
+                id: 4,
+                name: "Óleo Hidráulico ISO VG 68",
+                category: "Industrial",
+                badge: "Industrial",
+                viscosity: "ISO VG 68",
+                type: "Anti-desgaste",
+                price: 5200,
+                description: "Óleo hidráulico com aditivos avançados para sistemas de alta pressão, elevadores mecânicos, prensas e equipamentos industriais exigentes."
+            }
+        ];
+
+        let cart = [];
+
+        function switchView(viewId) {
+            document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById('view-' + viewId).classList.add('active');
+
+            document.querySelectorAll('.nav-links button').forEach(btn => btn.classList.remove('active'));
+            if(viewId === 'home') {
+                document.getElementById('nav-btn-home').classList.add('active');
+            } else if(viewId === 'store') {
+                document.getElementById('nav-btn-store').classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToDetails() {
+            window.scrollTo({ top: 400, behavior: 'smooth' });
+        }
+
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+
+            const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div>
+                        <span class="product-badge">${product.badge}</span>
+                        <div class="product-info-top">
+                            <div class="product-category">${product.category}</div>
+                            <h3 class="product-title">${product.name}</h3>
+                            <p class="product-desc">${product.description}</p>
+                            <div class="product-specs-mini">
+                                <span>Viscosidade: <strong>${product.viscosity}</strong></span>
+                                <span>Base: <strong>${product.type}</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">${product.price.toLocaleString()} MT</span>
+                        <button class="btn btn-primary btn-sm" onclick="addToCart(${product.id})">Comprar</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterProducts(category) {
+            document.querySelectorAll('.filter-tab').forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts(category);
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            const overlay = document.getElementById('overlay');
+            modal.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+
+            if(existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            toggleCart();
+        }
+
+        function updateCartQty(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if(item) {
+                item.qty += change;
+                if(item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== productId);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const countBadge = document.getElementById('cart-count');
+            const container = document.getElementById('cart-items-container');
+            const totalPriceEl = document.getElementById('cart-total-price');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            countBadge.innerText = totalItems;
+
+            if(cart.length === 0) {
+                container.innerHTML = `<p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">O seu carrinho está vazio.</p>`;
+                totalPriceEl.innerText = "0 MT";
+                return;
+            }
+
+            container.innerHTML = '';
+            let totalSum = 0;
+
+            cart.forEach(item => {
+                totalSum += item.price * item.qty;
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <div class="cart-item-info">
+                        <h4>${item.name}</h4>
+                        <p>${(item.price * item.qty).toLocaleString()} MT</p>
+                    </div>
+                    <div class="cart-item-controls">
+                        <button onclick="updateCartQty(${item.id}, -1)">-</button>
+                        <span>${item.qty}</span>
+                        <button onclick="updateCartQty(${item.id}, 1)">+</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            totalPriceEl.innerText = totalSum.toLocaleString() + " MT";
+        }
+
+        function checkoutOrder() {
+            if(cart.length === 0) return alert('Adicione produtos ao carrinho antes de finalizar.');
+            
+            let message = "Olá! Gostaria de encomendar os seguintes produtos na LubriMax:%0A";
+            let total = 0;
+            cart.forEach(item => {
+                message += `- ${item.qty}x ${item.name} (${(item.price * item.qty).toLocaleString()} MT)%0A`;
+                total += item.price * item.qty;
+            });
+            message += `%0A*Total Geral: ${total.toLocaleString()} MT*`;
+
+            window.open(`https://wa.me/?text=${message}`, '_blank');
+        }
+
+        window.onload = function() {
+            renderProducts();
+        };
+    </script>
+</body>
+</html>
