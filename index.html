@@ -1,133 +1,65 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LUBRIMAX | Lubrificantes</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101820">
+<meta name="description" content="LUBRIMAX — catálogo de lubrificantes Castrol para automóveis, frotas, oficinas e indústria em Moçambique. Peça uma cotação.">
+<title>LUBRIMAX | Catálogo de Lubrificantes</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f6f8;color:#17212b}
-header{background:#101820;color:white;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.brand{display:flex;align-items:center;gap:10px}.brand-mark{width:44px;height:44px;flex-shrink:0}.logo{font-size:27px;font-weight:800;letter-spacing:.5px;line-height:1}.logo span{color:#ffbf36}.tagline{font-size:10px;letter-spacing:2px;color:#c8d0d6;margin-top:5px}
-a{color:inherit;text-decoration:none}
-.btn{display:inline-block;background:#e53935;color:white;padding:12px 17px;border:0;border-radius:7px;font-weight:bold;cursor:pointer}
-.hero{background:linear-gradient(120deg,#101820,#303e49);color:white;padding:55px 6%}
-.hero h1{font-size:clamp(32px,6vw,52px);margin:10px 0}
-.hero p{max-width:600px;line-height:1.7}
-section{padding:35px 5%}
-h2{font-size:27px}
-.search{width:100%;max-width:450px;padding:13px;border:1px solid #ccc;border-radius:8px;font-size:16px}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
-.filter{padding:10px 13px;border:1px solid #ddd;border-radius:20px;background:white;cursor:pointer}
-.filter.active{background:#101820;color:white}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.product{background:white;padding:20px;border-radius:12px;border:1px solid #e1e5e9}
-.product .emoji{font-size:38px}
-.product h3{margin:12px 0 8px}
-.product p{color:#596673;line-height:1.5;min-height:65px}
-.product button{width:100%}
-.about{background:#e8edf1;line-height:1.8}
-.contact{background:#101820;color:white}
-.contact p{line-height:1.8}
-footer{padding:20px;text-align:center;background:#080d11;color:white}
-.cart{position:fixed;bottom:15px;right:15px;z-index:5;box-shadow:0 3px 12px #0004}
+:root{--ink:#101820;--red:#e53935;--gold:#ffbf36;--muted:#65717d;--paper:#f4f6f8;--line:#e0e5e9}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--paper);color:#17212b}a{color:inherit;text-decoration:none}button,input,select{font:inherit}.wrap{width:min(1160px,92%);margin:auto}header{background:var(--ink);color:white;position:sticky;top:0;z-index:10;border-bottom:1px solid #ffffff20}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:11px}.mark{width:43px;height:43px}.logo{font-size:25px;font-weight:900;letter-spacing:.4px}.logo span{color:var(--gold)}.tag{font-size:9px;letter-spacing:2px;color:#cbd2d8;margin-top:4px}.navlinks{display:flex;align-items:center;gap:24px;font-size:14px}.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--red);color:white;border:0;border-radius:8px;padding:13px 17px;font-weight:750;cursor:pointer;transition:transform .15s,opacity .15s}.btn:hover{opacity:.92;transform:translateY(-1px)}.btn.secondary{background:white;color:var(--ink);border:1px solid var(--line)}.hero{background:radial-gradient(ellipse at 85% 20%,#46515c 0,transparent 35%),linear-gradient(120deg,#101820,#26323d);color:white;padding:70px 0 66px}.eyebrow{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(36px,6vw,64px);line-height:1.04;letter-spacing:-1.8px;max-width:780px;margin:17px 0}.hero p{color:#d5dce1;max-width:650px;line-height:1.75;font-size:17px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}.trust{display:flex;gap:20px;flex-wrap:wrap;margin-top:35px;color:#d5dce1;font-size:13px}.trust span:before{content:'✓';color:var(--gold);font-weight:bold;margin-right:8px}.section{padding:48px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:24px}.section h2{font-size:clamp(26px,4vw,36px);margin:0 0 9px;letter-spacing:-.7px}.sub{color:var(--muted);margin:0;line-height:1.65}.searchrow{display:grid;grid-template-columns:minmax(200px,1fr) 220px;gap:10px;margin:22px 0 14px}.searchbox{position:relative}.searchbox span{position:absolute;left:14px;top:13px;font-size:18px;color:var(--muted)}input,select{width:100%;padding:14px 14px;border:1px solid #d7dde2;background:white;border-radius:9px;outline:none;color:var(--ink)}input{padding-left:43px}input:focus,select:focus{border-color:#8b9aa7;box-shadow:0 0 0 3px #10182012}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 25px}.filter{background:white;border:1px solid var(--line);padding:9px 13px;border-radius:999px;color:#34414c;cursor:pointer;font-size:13px}.filter.active{background:var(--ink);border-color:var(--ink);color:white}.count{font-size:13px;color:var(--muted);margin-bottom:13px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;min-height:275px;box-shadow:0 3px 12px #15202b05}.cardtop{display:flex;justify-content:space-between;gap:10px;align-items:start}.symbol{width:48px;height:48px;display:grid;place-items:center;background:#f4f6f8;border-radius:12px;font-size:25px}.pill{font-size:10px;font-weight:800;letter-spacing:.5px;color:#8b2927;background:#fff0ef;padding:6px 8px;border-radius:5px}.card h3{font-size:18px;line-height:1.3;margin:16px 0 8px}.card p{font-size:13px;color:var(--muted);line-height:1.6;margin:0 0 14px}.meta{font-size:12px;color:#34414c;background:#f7f8fa;padding:9px 10px;border-radius:7px;margin-top:auto;margin-bottom:12px}.card .btn{width:100%;font-size:13px;padding:11px}.empty{grid-column:1/-1;background:white;border:1px dashed #ccd3d9;padding:35px;text-align:center;border-radius:12px;color:var(--muted)}.note{background:#fff8e6;border:1px solid #f3e1ac;color:#65501b;padding:14px 16px;border-radius:10px;font-size:13px;line-height:1.6;margin-top:22px}.benefits{background:#e9edf0}.benefitgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.benefit{background:#fff;padding:22px;border-radius:12px;border:1px solid var(--line)}.benefit b{display:block;margin:12px 0 7px}.benefit p{color:var(--muted);font-size:14px;line-height:1.6;margin:0}.contact{background:var(--ink);color:white;padding:50px 0}.contactbox{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}.contact h2{font-size:clamp(27px,4vw,38px);margin:0 0 10px}.contact p{color:#cbd2d8;line-height:1.65;margin:0;max-width:600px}footer{padding:23px 0;background:#080d11;color:#aeb7bf;font-size:12px}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.floating{position:fixed;right:18px;bottom:18px;z-index:9;box-shadow:0 8px 24px #0003;border-radius:999px}.mobileonly{display:none}@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.navlinks{gap:12px}.benefitgrid{grid-template-columns:1fr}.hero{padding:54px 0}.navlinks .textlink{display:none}}@media(max-width:540px){.grid{grid-template-columns:1fr}.searchrow{grid-template-columns:1fr}.nav{min-height:68px}.logo{font-size:22px}.nav>.btn{padding:10px 12px;font-size:12px}.hero h1{letter-spacing:-1px}.hero p{font-size:15px}.section{padding:36px 0}.trust{gap:12px}.floating{right:12px;bottom:12px}.floating .full{display:none}.mobileonly{display:inline}}
 </style>
 </head>
 <body>
-
-<header>
-  <div class="brand"><svg class="brand-mark" viewBox="0 0 64 64" role="img" aria-label="Símbolo LUBRIMAX" xmlns="http://www.w3.org/2000/svg"><path d="M32 3C25 15 13 27 13 39a19 19 0 0 0 38 0C51 27 39 15 32 3Z" fill="#ffbf36"/><path d="M32 15C26 25 20 31 20 40a12 12 0 0 0 24 0c0-9-6-15-12-25Z" fill="#101820"/><path d="M25 42c1 4 4 6 8 7" fill="none" stroke="#ffbf36" stroke-width="3" stroke-linecap="round"/></svg><div><div class="logo">LUBRI<span>MAX</span></div><div class="tagline">LUBRIFICANTES &amp; FLUIDOS</div></div></div>
-  <a class="btn" href="#produtos">Ver produtos</a>
-</header>
-
-<div class="hero">
-  <p style="color:#ffbf36;font-weight:bold">NAMPULA · MOÇAMBIQUE</p>
-  <h1>O lubrificante certo para cada trabalho.</h1>
-  <p>Lubrificantes e fluidos para viaturas, máquinas, oficinas e indústria. Encontre o produto de que precisa e peça a sua cotação.</p>
-  <a class="btn" href="https://wa.me/258877966221?text=Bom%20dia%20LUBRIMAX,%20gostaria%20de%20pedir%20uma%20cota%C3%A7%C3%A3o">Pedir cotação no WhatsApp</a>
-</div>
-
-<section id="produtos">
-  <h2>Os nossos produtos</h2>
-  <p>Pesquise ou escolha uma categoria.</p>
-  <input class="search" id="search" placeholder="Pesquisar óleo, graxa, fluido..." aria-label="Pesquisar produtos">
-
-  <div class="filters">
-    <button class="filter active" data-cat="Todos">Todos</button>
-    <button class="filter" data-cat="Motor">Óleos de motor</button>
-    <button class="filter" data-cat="Transmissão">Transmissão</button>
-    <button class="filter" data-cat="Hidráulicos">Hidráulicos</button>
-    <button class="filter" data-cat="Industriais">Industriais</button>
-    <button class="filter" data-cat="Graxas">Graxas</button>
-    <button class="filter" data-cat="Fluidos">Fluidos</button>
-  </div>
-
-  <div class="products" id="lista"></div>
-  <p>Consulte-nos para confirmar marcas, especificações, embalagens, stock e preços.</p>
-</section>
-
-<section class="about">
-  <h2>Porquê escolher a LUBRIMAX?</h2>
-  <p>✓ Apoio na escolha do lubrificante adequado.</p>
-  <p>✓ Atendimento a particulares, oficinas e empresas.</p>
-  <p>✓ Soluções para automóveis, frotas, máquinas e indústria.</p>
-  <p>✓ Pedidos de cotação simples e rápidos.</p>
-</section>
-
-<section class="contact" id="contacto">
-  <h2>Precisa de uma cotação?</h2>
-  <p>Envie-nos o nome do produto ou a especificação de que precisa.</p>
-  <p>Nampula, Moçambique</p>
-  <p>WhatsApp: +258 87 796 6221</p>
-  <a class="btn" href="https://wa.me/258877966221?text=Bom%20dia%20LUBRIMAX,%20preciso%20de%20uma%20cota%C3%A7%C3%A3o" target="_blank" rel="noopener">Contactar agora</a>
-</section>
-
-<footer>© <span id="ano"></span> LUBRIMAX · Lubrificantes e fluidos</footer>
-<button class="btn cart" id="pedido">Meu pedido (<span id="total">0</span>)</button>
-
+<header><div class="wrap nav">
+<a class="brand" href="#" aria-label="LUBRIMAX início"><svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Símbolo de gota"><path d="M32 3C25 15 13 27 13 39a19 19 0 0 0 38 0C51 27 39 15 32 3Z" fill="#ffbf36"/><path d="M32 15C26 25 20 31 20 40a12 12 0 0 0 24 0c0-9-6-15-12-25Z" fill="#101820"/><path d="M25 42c1 4 4 6 8 7" fill="none" stroke="#ffbf36" stroke-width="3" stroke-linecap="round"/></svg><div><div class="logo">LUBRI<span>MAX</span></div><div class="tag">LUBRIFICANTES & FLUIDOS</div></div></a>
+<nav class="navlinks"><a href="#produtos">Catálogo</a><a href="#vantagens">Sobre nós</a><a href="#contacto">Contacto</a></nav>
+<a class="btn" href="#produtos">Ver catálogo <span>↗</span></a>
+</div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="eyebrow">Nampula · Moçambique</div><h1>Desempenho começa com o lubrificante certo.</h1><p>Catálogo de lubrificantes e fluidos Castrol para automóveis, transportes, oficinas e aplicações industriais. Encontre a referência e solicite uma cotação à nossa equipa.</p><div class="hero-actions"><a class="btn" href="#produtos">Explorar produtos ↓</a><a class="btn secondary" href="https://wa.me/258877966221?text=Bom%20dia%20LUBRIMAX%2C%20gostaria%20de%20pedir%20uma%20cota%C3%A7%C3%A3o." target="_blank" rel="noopener">Pedir cotação no WhatsApp</a></div><div class="trust"><span>Catálogo pesquisável</span><span>Pedidos de cotação fáceis</span><span>Atendimento a empresas e particulares</span></div></div></section>
+<section class="section" id="produtos"><div class="wrap">
+<div class="section-head"><div><div class="eyebrow">Encontre o que precisa</div><h2>Catálogo de produtos</h2><p class="sub">Pesquise por nome, aplicação, referência ou embalagem.</p></div></div>
+<div class="searchrow"><div class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Ex.: Alpha SP 220, 15W-40, código..." aria-label="Pesquisar catálogo"></div><select id="sort" aria-label="Ordenar produtos"><option value="default">Ordenação padrão</option><option value="az">Nome: A–Z</option></select></div>
+<div class="filters" id="filters"><button class="filter active" data-cat="Todos">Todos</button><button class="filter" data-cat="Automóvel">Automóvel</button><button class="filter" data-cat="Motor diesel">Motor diesel</button><button class="filter" data-cat="Transmissão">Transmissão</button><button class="filter" data-cat="Hidráulicos">Hidráulicos</button><button class="filter" data-cat="Industriais">Industriais</button><button class="filter" data-cat="Graxas">Graxas</button><button class="filter" data-cat="Fluidos">Fluidos</button></div>
+<div class="count" id="count" aria-live="polite"></div><div class="grid" id="lista"></div>
+<div class="note"><strong>Nota:</strong> Os preços não são apresentados neste catálogo. A disponibilidade, as embalagens e as especificações devem ser confirmadas no momento do pedido. Consulte a ficha técnica para verificar se o produto é adequado à sua aplicação.</div>
+</div></section>
+<section class="section benefits" id="vantagens"><div class="wrap"><div class="eyebrow">LUBRIMAX</div><h2>Mais do que vender óleo.</h2><p class="sub">Ajudamos a identificar a solução adequada para cada viatura, equipamento ou operação.</p><div class="benefitgrid"><article class="benefit"><div style="font-size:25px">⚙️</div><b>Orientação sobre produtos</b><p>Ajuda na identificação por aplicação, viscosidade, referência e embalagem.</p></article><article class="benefit"><div style="font-size:25px">🏭</div><b>Soluções para empresas</b><p>Atendimento a oficinas, frotas, transportadoras e clientes industriais.</p></article><article class="benefit"><div style="font-size:25px">💬</div><b>Cotação simples</b><p>Monte o seu pedido e envie a lista directamente pelo WhatsApp.</p></article></div></div></section>
+<section class="contact" id="contacto"><div class="wrap contactbox"><div><div class="eyebrow">Estamos disponíveis</div><h2>Vamos encontrar o produto certo.</h2><p>Envie os nomes, códigos ou especificações de que precisa. A nossa equipa poderá confirmar disponibilidade e preparar uma cotação.</p><p style="margin-top:12px">Nampula, Moçambique · WhatsApp: +258 87 796 6221</p></div><a class="btn" href="https://wa.me/258877966221?text=Bom%20dia%20LUBRIMAX%2C%20preciso%20de%20ajuda%20para%20identificar%20um%20lubrificante." target="_blank" rel="noopener">Falar com a equipa ↗</a></div></section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="ano"></span> LUBRIMAX · Lubrificantes & fluidos</span><span>Informação sujeita a confirmação comercial e técnica.</span></div></footer>
+<button class="btn floating" id="pedido" aria-label="Enviar pedido de cotação">🛒 <span class="full">Meu pedido</span> (<span id="total">0</span>)</button>
 <script>
 const produtos=[
-{n:"Óleos de motor",c:"Motor",e:"🛢️",d:"Óleos para motores a gasolina e diesel."},
-{n:"Óleos de transmissão",c:"Transmissão",e:"⚙️",d:"Óleos para caixas, transmissões e diferenciais."},
-{n:"Óleos hidráulicos",c:"Hidráulicos",e:"🔧",d:"Para sistemas hidráulicos e equipamentos."},
-{n:"Óleos industriais",c:"Industriais",e:"🏭",d:"Lubrificantes para aplicações industriais."},
-{n:"Graxas e massas",c:"Graxas",e:"🔩",d:"Para rolamentos e outras aplicações de lubrificação."},
-{n:"Fluidos automotivos",c:"Fluidos",e:"🚗",d:"Fluidos para manutenção de viaturas."},
-{n:"Óleos de engrenagens",c:"Transmissão",e:"⚙️",d:"Para engrenagens e diferenciais."},
-{n:"Lubrificantes para máquinas",c:"Hidráulicos",e:"🚜",d:"Produtos para máquinas e equipamentos."},
-{n:"Graxas industriais",c:"Graxas",e:"🏗️",d:"Consulte-nos sobre a graxa adequada à aplicação."}
+{n:"Alpha SP 68",code:"3359494",pack:"210 L",c:"Industriais",e:"⚙️",d:"Óleo para engrenagens industriais; confirme a viscosidade e os requisitos do equipamento."},
+{n:"Alpha SP 150",code:"3359565 / 3359485",pack:"20 L / 210 L",c:"Industriais",e:"⚙️",d:"Lubrificante industrial para engrenagens. Seleccione a embalagem adequada."},
+{n:"Alpha SP 220",code:"3359566 / 3359487",pack:"20 L / 210 L",c:"Industriais",e:"⚙️",d:"Lubrificante para engrenagens industriais; confirme os requisitos técnicos."},
+{n:"Alpha SP 320",code:"3359568 / 3359490",pack:"20 L / 210 L",c:"Industriais",e:"⚙️",d:"Óleo industrial para aplicações que requeiram viscosidade ISO VG 320."},
+{n:"Alpha SP 460",code:"3359569 / 3359492",pack:"20 L / 210 L",c:"Industriais",e:"⚙️",d:"Lubrificante industrial para aplicações compatíveis com ISO VG 460."},
+{n:"Alpha SP 680",code:"3359497",pack:"210 L",c:"Industriais",e:"⚙️",d:"Óleo industrial de alta viscosidade; confirme a aplicação antes da compra."},
+{n:"Alphasyn EP 220",code:"3308284",pack:"20 L",c:"Industriais",e:"🏭",d:"Lubrificante industrial. Consulte a ficha técnica para confirmar a aplicação."},
+{n:"Alphasyn EP 680",code:"3369937",pack:"205 L",c:"Industriais",e:"🏭",d:"Lubrificante industrial de alta viscosidade para aplicações adequadas."},
+{n:"Anvol SWX 68",code:"3375273",pack:"1.000 L",c:"Fluidos",e:"🛢️",d:"Fluido especial. Solicite confirmação da aplicação e da disponibilidade."},
+{n:"BNS Grease",code:"3379299",pack:"15 kg",c:"Graxas",e:"🔩",d:"Massa lubrificante. Confirme os requisitos técnicos do ponto de lubrificação."},
+{n:"Brake Fluid DOT 4",code:"3373711 / 3374881",pack:"20 × 500 ml / 50 × 200 ml",c:"Fluidos",e:"🚗",d:"Fluido de travões DOT 4. Confirme a especificação indicada pelo fabricante do veículo."},
+{n:"Chain Lube Racing",code:"3376162",pack:"12 × 400 ml",c:"Automóvel",e:"🏍️",d:"Lubrificante em spray para corrente; confirme a compatibilidade com a aplicação."},
+{n:"Chain Spray (Aerosol)",code:"3378474",pack:"12 × 400 ml",c:"Automóvel",e:"🔧",d:"Spray lubrificante para corrente. Consulte as instruções de utilização."},
+{n:"CRB Monograde 10W CF",code:"3423149 / 3423150",pack:"20 L / 210 L",c:"Motor diesel",e:"🚚",d:"Óleo de motor monograduado para aplicações compatíveis com a especificação do produto."},
+{n:"CRB Monograde 30 CF",code:"3423224 / 3423225",pack:"20 L / 210 L",c:"Motor diesel",e:"🚚",d:"Óleo monograduado para motores; confirme a viscosidade e as aprovações requeridas."},
+{n:"CRB Monograde 40 CF",code:"3423219 / 3423220",pack:"20 L / 210 L",c:"Motor diesel",e:"🚚",d:"Óleo monograduado para motores diesel. Consulte o manual do equipamento."},
+{n:"CRB Monograde 40 CF",code:"3423221 / 3423222",pack:"12 × 1 L / 4 × 5 L",c:"Motor diesel",e:"🚚",d:"Embalagens para aplicações compatíveis. Verifique os requisitos do fabricante."},
+{n:"CRB Multi 15W-40 CH-4",code:"3424061 / 3417469 / 3424059 / 3424060",pack:"12 × 1 L / 20 L / 210 L / 4 × 5 L",c:"Motor diesel",e:"🚛",d:"Óleo multigraduado para motores diesel, sujeito às especificações exigidas pelo fabricante."},
+{n:"CRB Turbomax 15W-40 CI-4/SL/E7",code:"3425921 / 3424880 / 3424881",pack:"4 × 5 L / 20 L / 210 L",c:"Motor diesel",e:"🚛",d:"Óleo para motores diesel. Confirme as aprovações e os requisitos do motor."},
+{n:"Cutter Bar & Chain Lubricant",code:"3409945 / 3409946",pack:"20 L / 210 L",c:"Industriais",e:"🪚",d:"Lubrificante para barra e corrente de equipamento compatível."},
+{n:"Calibration Oil 4113",code:"3394852",pack:"20 L",c:"Industriais",e:"🧰",d:"Óleo de calibração. Consulte a documentação técnica para confirmar a utilização."}
 ];
-let categoria="Todos";
-const carrinho={};
-function mostrar(){
- const q=document.getElementById("search").value.toLowerCase();
- const lista=produtos.filter(p=>(categoria==="Todos"||p.c===categoria)&&(p.n+" "+p.c+" "+p.d).toLowerCase().includes(q));
- document.getElementById("lista").innerHTML=lista.map(p=>`
- <article class="product">
- <div class="emoji">${p.e}</div><h3>${p.n}</h3><p>${p.d}</p>
- <button class="btn" onclick="adicionar('${p.n}')">Adicionar ao pedido</button>
- </article>`).join("")||"<p>Nenhum produto encontrado.</p>";
-}
-function adicionar(nome){
- carrinho[nome]=(carrinho[nome]||0)+1;
- document.getElementById("total").textContent=Object.values(carrinho).reduce((a,b)=>a+b,0);
-}
-document.getElementById("search").addEventListener("input",mostrar);
-document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
- categoria=b.dataset.cat;
- document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));
- mostrar();
-}));
-document.getElementById("pedido").addEventListener("click",()=>{
- if(!Object.keys(carrinho).length){alert("Adicione primeiro um produto ao pedido.");return;}
- const texto="Bom dia, LUBRIMAX. Gostaria de uma cotação para:\n"+
- Object.entries(carrinho).map(([n,q])=>q+" x "+n).join("\n")+
- "\nPor favor, confirmem disponibilidade e preços.";
- window.open("https://wa.me/258877966221?text="+encodeURIComponent(texto),"_blank");
-});
-document.getElementById("ano").textContent=new Date().getFullYear();
-mostrar();
+let categoria="Todos";const carrinho={};
+const normal=s=>s.toLocaleLowerCase("pt").normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+function mostrar(){const q=normal(document.getElementById("search").value.trim());let list=produtos.filter(p=>(categoria==="Todos"||p.c===categoria)&&normal([p.n,p.code,p.pack,p.c,p.d].join(" ")).includes(q));if(document.getElementById("sort").value==="az")list.sort((a,b)=>a.n.localeCompare(b.n,"pt"));document.getElementById("count").textContent=list.length+" produto(s) encontrado(s)";document.getElementById("lista").innerHTML=list.map((p,i)=>'<article class="card"><div class="cardtop"><div class="symbol">'+p.e+'</div><span class="pill">'+p.c+'</span></div><h3>'+p.n+'</h3><p>'+p.d+'</p><div class="meta"><b>Referência:</b> '+p.code+'<br><b>Embalagem:</b> '+p.pack+'</div><button class="btn" data-add="'+produtos.indexOf(p)+'">＋ Adicionar ao pedido</button></article>').join("")||'<div class="empty">Não encontrámos produtos com esses termos. Tente outra pesquisa ou peça ajuda pelo WhatsApp.</div>';document.querySelectorAll("[data-add]").forEach(b=>b.addEventListener("click",()=>adicionar(produtos[Number(b.dataset.add)])));}
+function adicionar(p){const k=p.n+" | "+p.pack+" | cód. "+p.code;carrinho[k]=(carrinho[k]||0)+1;document.getElementById("total").textContent=Object.values(carrinho).reduce((a,b)=>a+b,0);}
+document.getElementById("search").addEventListener("input",mostrar);document.getElementById("sort").addEventListener("change",mostrar);document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{categoria=b.dataset.cat;document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));mostrar();}));
+document.getElementById("pedido").addEventListener("click",()=>{if(!Object.keys(carrinho).length){alert("Adicione primeiro um produto ao pedido.");return;}const msg="Bom dia, LUBRIMAX. Gostaria de solicitar uma cotação para:\n"+Object.entries(carrinho).map(([n,q])=>q+" × "+n).join("\n")+"\n\nPor favor, confirmem disponibilidade e preço.";window.open("https://wa.me/258877966221?text="+encodeURIComponent(msg),"_blank","noopener");});
+document.getElementById("ano").textContent=new Date().getFullYear();mostrar();
 </script>
-</body>
-</html>
+</body></html>
