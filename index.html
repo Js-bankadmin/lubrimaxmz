@@ -136,7 +136,7 @@ function renderProducts(){
  if(!shown.length){grid.innerHTML='<p class="empty">Não encontrámos produtos com esse termo. Experimente outra pesquisa.</p>';return}
  shown.forEach(p=>{
   const card=document.createElement("article");card.className="product";
-  card.innerHTML='<div class="product-art"><span class="product-badge">Consultar</span><img src="'+p.image+'" alt="Imagem ilustrativa de '+p.name+'" loading="lazy" onerror="this.style.display=\'none\';this.parentElement.querySelector(\'.product-symbol\').style.display=\'block\'"><span class="product-symbol" aria-hidden="true" style="display:none">\'+p.symbol+\'</span><small>IMAGEM ILUSTRATIVA · '+p.code+'</small></div><div class="product-body"><div class="product-category">'+p.category+'</div><h3>'+p.name+'</h3><p>'+p.desc+'</p><div class="product-bottom"><span class="quote-label">Preço sob consulta</span><button class="btn btn-primary" type="button">Adicionar ao carrinho +</button></div></div>';
+  card.innerHTML='<div class="product-art"><span class="product-badge">Consultar</span><span class="product-symbol" aria-hidden="true" style="position:absolute;color:#cbd2cb;font-size:2.4rem;z-index:0">'+p.symbol+'</span><img src="'+p.image+'" alt="Imagem ilustrativa de '+p.name+'" loading="lazy" style="position:relative;z-index:1" ><small>IMAGEM ILUSTRATIVA · '+p.code+'</small></div><div class="product-body"><div class="product-category">'+p.category+'</div><h3>'+p.name+'</h3><p>'+p.desc+'</p><div class="product-bottom"><span class="quote-label">Preço sob consulta</span><button class="btn btn-primary" type="button">Adicionar ao carrinho +</button></div></div>';
   card.querySelector("button").addEventListener("click",()=>addToCart(p));
   grid.appendChild(card);
  });
