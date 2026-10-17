@@ -83,6 +83,22 @@ footer{background:var(--ink);color:#c4c6c1;padding:38px 0 25px}.footer-top{displ
 
 .brand-logo{display:block;width:clamp(155px,18vw,205px);height:auto;max-height:54px;flex:0 0 auto;object-fit:contain}.footer-brand .brand-logo{width:190px;max-height:54px}.brand{gap:0;letter-spacing:normal}.footer-brand .brand{margin-bottom:6px}@media(max-width:600px){.brand-logo{width:155px;max-height:44px}.footer-brand .brand-logo{width:175px}}
 .nav-cta:hover,.btn-primary:hover{background:#d8b957}.links a:hover{color:#c6a13b}.product-badge{background:#c6a13b;color:#202124}.cart-count{background:#c6a13b;color:#202124}.brand-logo{filter:none}
+
+/* Galeria de produtos: imagens consistentes, nítidas e alinhadas */
+.product-art{height:190px;min-height:190px;flex:0 0 190px;position:relative;display:flex;align-items:center;justify-content:center;padding:16px 14px 25px;background:linear-gradient(180deg,#fff 0%,#fbfaf7 100%);isolation:isolate}
+.product-art img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center center;mix-blend-mode:multiply;transition:transform .25s ease;z-index:1}
+.product:hover .product-art img{transform:scale(1.035)}
+.product-art .product-symbol{display:none}
+.product-art.image-failed .product-symbol{display:grid;position:absolute;inset:0;place-items:center;color:#c6a13b;font-size:3rem;z-index:0}
+.product-art small{z-index:2;left:8px;bottom:7px;font-size:.55rem;letter-spacing:.04em;max-width:calc(100% - 16px)}
+.product-badge{z-index:3}
+.product{min-width:0}
+.product-body{min-width:0}
+.product h3{overflow-wrap:anywhere}
+@media(max-width:1000px){.product-art{height:175px;min-height:175px;flex-basis:175px}}
+@media(max-width:700px){.product-art{height:150px;min-height:150px;flex-basis:150px;padding:10px 9px 23px}.product-art small{font-size:.48rem;left:6px;bottom:6px}}
+@media(max-width:370px){.product-art{height:132px;min-height:132px;flex-basis:132px}}
+
 </style>
 </head>
 <body>
@@ -122,15 +138,15 @@ footer{background:var(--ink);color:#c4c6c1;padding:38px 0 25px}.footer-top{displ
 <footer><div class="wrap"><div class="footer-top"><div class="footer-brand"><a class="brand" href="#inicio" aria-label="LUBRIMAX início"><img class="brand-logo" src="logo.svg" alt="LubriMax Nampula"></a><p>Soluções em lubrificação para automóveis, transporte pesado e aplicações industriais. Nampula, Moçambique.</p></div><div class="footer-links"><a href="#inicio">Início</a><a href="#catalogo">Catálogo</a><a href="#empresa">A empresa</a><a href="#contacto">Contactos</a></div></div><div class="copyright"><span>© <span id="year"></span> LUBRIMAX. Todos os direitos reservados.</span><span>Lubrificação inteligente. Desempenho em cada quilómetro.</span></div></div></footer>
 <script>
 const products=[
-{id:1,name:"Óleos para motores a gasolina",category:"Automotivo",symbol:"◉",code:"01",image:"https://dch.com.pe/wp-content/uploads/2019/03/EDGE-5W40-1QT.png",desc:"Opções de diferentes viscosidades para motores a gasolina. A escolha depende das recomendações do fabricante e das condições de utilização."},
-{id:2,name:"Óleos para motores diesel",category:"Pesados",symbol:"▰",code:"02",image:"https://cdn.globalformulation.com/images/lubricants/lubricants_scroll_packaging.webp",desc:"Soluções para viaturas comerciais, camiões e motores diesel. Confirme a especificação exigida pelo equipamento."},
-{id:3,name:"Óleos de transmissão",category:"Automotivo",symbol:"⚙",code:"03",image:"https://www.valvolineglobal.com/4ac283/globalassets/sitecore/europeregion/images/products/valvoline20website20images/gear2020transmission20oil/passenger20cars/gear20oil.png?format=webp&quality=80",desc:"Lubrificantes para caixas manuais, transmissões automáticas e diferenciais, conforme a especificação do fabricante."},
-{id:4,name:"Óleos hidráulicos",category:"Industrial",symbol:"↗",code:"04",image:"https://www.parkerbrand.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/p/l/plo-ho-main.jpg",desc:"Óleos hidráulicos em diferentes graus de viscosidade para sistemas hidráulicos e equipamentos industriais."},
-{id:5,name:"Óleos industriais",category:"Industrial",symbol:"◈",code:"05",image:"https://www.lakeudenhydro.fi/storage/product_images/8/ENERPACoLJY1L_40248_1889eb740ea5_1.webp",desc:"Soluções de lubrificação para máquinas e processos industriais. A seleção depende da aplicação e dos requisitos técnicos."},
+{id:1,name:"Óleos para motores a gasolina",category:"Automotivo",symbol:"◉",code:"01",image:"https://www.castrol.com/content/dam/castrol/master-site/en/global-ia/home/africa/images/products/castrol-edge-5-w-40.jpg.img.50.medium.jpg",desc:"Opções de diferentes viscosidades para motores a gasolina. A escolha depende das recomendações do fabricante e das condições de utilização."},
+{id:2,name:"Óleos para motores diesel",category:"Pesados",symbol:"▰",code:"02",image:"https://www.castrol.com/content/dam/castrol/country-sites-new/en_zm/southern_african_region/home/images/products/our-brands/gtx/castrol-gtx-10w40.png.img.50.medium.png",desc:"Soluções para viaturas comerciais, camiões e motores diesel. Confirme a especificação exigida pelo equipamento."},
+{id:3,name:"Óleos de transmissão",category:"Automotivo",symbol:"⚙",code:"03",image:"https://www.castrol.com/content/dam/castrol/master-site/en/global-ia/home/africa/images/products/transmax-dexron-vi-mercon-lv.png.img.50.medium.png",desc:"Lubrificantes para caixas manuais, transmissões automáticas e diferenciais, conforme a especificação do fabricante."},
+{id:4,name:"Óleos hidráulicos",category:"Industrial",symbol:"↗",code:"04",image:"https://www.castrol.com/content/dam/castrol/business-sites-new/en/global/corporate/images/products/commercial-vehicles/commercial-vehicles-products/hydraulic-fluids/castrol-commercial-vehicles-hydraulics-page-banner.jpg.img.50.medium.jpg",desc:"Óleos hidráulicos em diferentes graus de viscosidade para sistemas hidráulicos e equipamentos industriais."},
+{id:5,name:"Óleos industriais",category:"Industrial",symbol:"◈",code:"05",image:"https://www.castrol.com/content/dam/castrol/country-sites-new/en_zm/southern_african_region/home/images/products/our-brands/gtx/castrol-gtx-5w30.png.img.50.medium.png",desc:"Soluções de lubrificação para máquinas e processos industriais. A seleção depende da aplicação e dos requisitos técnicos."},
 {id:6,name:"Massas lubrificantes",category:"Industrial",symbol:"●",code:"06",image:"https://www.gorelepetrol.com/idea/ri/31/myassets/products/042/shell-gadus-s2-v220ac-2-18-kg-236965.webp?revision=1772025336",desc:"Massas para rolamentos, chassis e aplicações industriais, incluindo diferentes condições de carga e temperatura."},
-{id:7,name:"Óleos para equipamentos pesados",category:"Pesados",symbol:"▤",code:"07",image:"https://www.poulsen.is/wp-content/uploads/2023/12/044-872596_044-874308.webp",desc:"Lubrificantes para maquinaria de construção, agricultura, mineração e operações exigentes."},
+{id:7,name:"Óleos para equipamentos pesados",category:"Pesados",symbol:"▤",code:"07",image:"https://www.castrol.com/content/dam/castrol/country-sites-new/en_zm/southern_african_region/home/images/products/our-brands/gtx/castrol-gtx-10w40.png.img.50.medium.png",desc:"Lubrificantes para maquinaria de construção, agricultura, mineração e operações exigentes."},
 {id:8,name:"Fluidos de refrigeração",category:"Automotivo",symbol:"❄",code:"08",image:"https://www.castrol.com/content/dam/castrol/country-sites-new/en_pk/pakistan/home/images/products/radicool-premix.png",desc:"Fluidos para sistemas de arrefecimento. Verifique sempre a compatibilidade com as especificações do veículo."},
-{id:9,name:"Óleos para engrenagens",category:"Industrial",symbol:"⚙",code:"09",image:"https://cdn.media.halfords.com/i/washford/124333/Comma-Gear-Oil-EP80W90-GL5-1L.webp?%24sfcc_tile%24=&fmt=auto&qlt=default&w=456",desc:"Lubrificantes para caixas redutoras e sistemas de engrenagens industriais, conforme a carga e a recomendação técnica."}
+{id:9,name:"Óleos para engrenagens",category:"Industrial",symbol:"⚙",code:"09",image:"https://www.castrol.com/content/dam/castrol/master-site/en/global-ia/home/africa/images/products/transmax-dexron-vi-mercon-lv.png.img.50.medium.png",desc:"Lubrificantes para caixas redutoras e sistemas de engrenagens industriais, conforme a carga e a recomendação técnica."}
 ];
 let activeFilter="Todos";
 const cart=new Map();
@@ -142,7 +158,7 @@ function renderProducts(){
  if(!shown.length){grid.innerHTML='<p class="empty">Não encontrámos produtos com esse termo. Experimente outra pesquisa.</p>';return}
  shown.forEach(p=>{
   const card=document.createElement("article");card.className="product";
-  card.innerHTML='<div class="product-art"><span class="product-badge">Consultar</span><span class="product-symbol" aria-hidden="true" style="position:absolute;color:#d4c08a;font-size:2.4rem;z-index:0">'+p.symbol+'</span><img src="'+p.image+'" alt="Imagem ilustrativa de '+p.name+'" loading="lazy" style="position:relative;z-index:1" ><small>IMAGEM ILUSTRATIVA · '+p.code+'</small></div><div class="product-body"><div class="product-category">'+p.category+'</div><h3>'+p.name+'</h3><p>'+p.desc+'</p><div class="product-bottom"><span class="quote-label">Preço sob consulta</span><button class="btn btn-primary" type="button">Adicionar ao carrinho +</button></div></div>';
+  card.innerHTML='<div class="product-art"><span class="product-badge">Consultar</span><span class="product-symbol" aria-hidden="true">'+p.symbol+'</span><img src="'+p.image+'" alt="Imagem ilustrativa de '+p.name+'" loading="lazy" decoding="async" onerror="this.hidden=true;this.parentElement.classList.add(\'image-failed\')"><small>IMAGEM ILUSTRATIVA · '+p.code+'</small></div><div class="product-body"><div class="product-category">'+p.category+'</div><h3>'+p.name+'</h3><p>'+p.desc+'</p><div class="product-bottom"><span class="quote-label">Preço sob consulta</span><button class="btn btn-primary" type="button">Adicionar ao carrinho +</button></div></div>';
   card.querySelector("button").addEventListener("click",()=>addToCart(p));
   grid.appendChild(card);
  });
